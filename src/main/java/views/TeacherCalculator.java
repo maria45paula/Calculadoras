@@ -14,10 +14,12 @@ public class TeacherCalculator extends JDialog {
 
     public TeacherCalculator(Window parent) {
         this.parent = parent;
+        setContentPane(contentPane);
         setModal(true);
         setLocationRelativeTo(null);
-        pack();
+        buttonCalculate();
         buttonCancel();
+        pack();
 
 
     }
@@ -26,7 +28,9 @@ public class TeacherCalculator extends JDialog {
         buttonCancel.addActionListener(e -> {
             this.dispose();
             if (parent != null) {
-                parent.setVisible(true);
+                parent.requestFocus();
+                parent.revalidate();
+                parent.repaint();
             }
         });
     }
@@ -49,8 +53,13 @@ public class TeacherCalculator extends JDialog {
 
     public void buttonCalculate() {
         buttonCalculate.addActionListener(e -> {
-            double average = calculateAverage(txtGrades);
-            lblResult.setText(" RESULT: " + average);
+            try {
+                double average = calculateAverage(txtGrades);
+                lblResult.setText(" RESULT: " + average);
+
+            } catch (NumberFormatException error) {
+                lblResult.setText("Error: Ingresa solo números");
+            }
         });
     }
 

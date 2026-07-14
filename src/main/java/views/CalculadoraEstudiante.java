@@ -1,8 +1,9 @@
 package views;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class CalculadoraEstudiante {
+public class CalculadoraEstudiante extends JDialog {
     private JTextField visualizarOperaciones;
     private JButton btn7;
     private JButton btn8;
@@ -22,12 +23,22 @@ public class CalculadoraEstudiante {
     private JButton btnMultiplicacion;
     private JButton btnDivision;
     private JButton btnDecimal;
-    public JPanel home;
+    private JPanel home;
     private double valorAnterior = 0;
     private String operadorActual = "";
     private boolean nuevoNumero = true;
+    private Window parent;
 
-    public CalculadoraEstudiante() {
+    public CalculadoraEstudiante(Window parent) {
+
+        this.parent = parent;
+        setContentPane(home);
+        setHome(home);
+        setModal(true);
+        setLocationRelativeTo(null);
+        regresarButton();
+        pack();
+
         // Botones de numeros
         btn0.addActionListener(e -> agregarDigito("0"));
         btn1.addActionListener(e -> agregarDigito("1"));
@@ -74,6 +85,10 @@ public class CalculadoraEstudiante {
         nuevoNumero = true;
     }
 
+    public void setHome(JPanel home) {
+        this.home = home;
+    }
+
     private void calcularResultado() {
         double valorActual = Double.parseDouble(visualizarOperaciones.getText());
         double resultado = 0;
@@ -104,4 +119,16 @@ public class CalculadoraEstudiante {
         valorAnterior = resultado;
         nuevoNumero = true;
     }
+
+    public void regresarButton() {
+        regresarButton.addActionListener(e -> {
+            this.dispose();
+            if (parent != null) {
+                parent.requestFocus();
+                parent.revalidate();
+                parent.setVisible(true);
+            }
+        });
+    }
+
 }

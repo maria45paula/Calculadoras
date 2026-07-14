@@ -1,6 +1,5 @@
 package org.taller;
 
-import views.CalculadoraEstudiante;
 import views.Principal;
 
 import javax.swing.*;
@@ -10,13 +9,16 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         JFrame home = new JFrame("Calculadora Estudiante");
-        CalculadoraEstudiante calculadora = new CalculadoraEstudiante();
         Principal principal = new Principal();
+        principal.calculadoraEstudianteButton();
+        principal.calculadoraProfesorButton();
         home.setContentPane(principal.home);
         home.pack();
         home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         home.setLocationRelativeTo(null);
         home.setSize(600, 600);
         home.setVisible(true);
+
+
     }
 }
