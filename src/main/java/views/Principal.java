@@ -16,6 +16,10 @@ public class Principal extends JFrame {
         Titulo = titulo;
     }
 
+    public JPanel getHome() {
+        return home;
+    }
+
     public void setCalculadoraEstudianteButton(JButton calculadoraEstudianteButton) {
         this.calculadoraEstudianteButton = calculadoraEstudianteButton;
     }
@@ -31,8 +35,8 @@ public class Principal extends JFrame {
 
     public void calculadoraEstudianteButton() {
         calculadoraEstudianteButton.addActionListener(e -> {
-            CalculadoraEstudiante calculadoraEstudiante = new CalculadoraEstudiante(currentWindow);
             Window currentWindow = SwingUtilities.getWindowAncestor(home);
+            CalculadoraEstudiante calculadoraEstudiante = new CalculadoraEstudiante(currentWindow);
             currentWindow.setVisible(false);
             calculadoraEstudiante.setVisible(true);
         });
@@ -40,8 +44,10 @@ public class Principal extends JFrame {
 
     public void calculadoraProfesorButton() {
         calculadoraProfesorButton.addActionListener(e -> {
-            TeacherCalculator teacherCalculator = new TeacherCalculator(currentWindow);
-            teacherCalculator.setVisible(true);
+            Window currentWindow = SwingUtilities.getWindowAncestor(home);
+            CalculadoraProfesor calculadoraProfesor = new CalculadoraProfesor(currentWindow);
+            currentWindow.setVisible(false);
+            calculadoraProfesor.setVisible(true);
         });
     }
 

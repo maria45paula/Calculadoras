@@ -30,7 +30,6 @@ public class CalculadoraEstudiante extends JDialog {
     private Window parent;
 
     public CalculadoraEstudiante(Window parent) {
-
         this.parent = parent;
         setContentPane(home);
         setHome(home);
@@ -39,7 +38,6 @@ public class CalculadoraEstudiante extends JDialog {
         regresarButton();
         pack();
 
-        // Botones de numeros
         btn0.addActionListener(e -> agregarDigito("0"));
         btn1.addActionListener(e -> agregarDigito("1"));
         btn2.addActionListener(e -> agregarDigito("2"));
@@ -127,6 +125,7 @@ public class CalculadoraEstudiante extends JDialog {
                 parent.requestFocus();
                 parent.revalidate();
                 parent.setVisible(true);
+
             }
         });
     }

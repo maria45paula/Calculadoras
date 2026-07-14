@@ -16,12 +16,13 @@
         </constraints>
         <properties>
           <font name="Arial Black" size="20" style="0"/>
+          <foreground color="-394241"/>
           <text value="Bienvenido"/>
         </properties>
       </component>
       <component id="e1384" class="javax.swing.JButton" binding="calculadoraEstudianteButton" default-binding="true">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-2368300"/>
@@ -31,7 +32,7 @@
       </component>
       <component id="ce077" class="javax.swing.JButton" binding="calculadoraProfesorButton" default-binding="true">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-2368300"/>
@@ -41,10 +42,10 @@
       </component>
       <component id="4c161" class="javax.swing.JLabel" binding="descripcion">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Consolas" size="16" style="0"/>
+          <font name="Consolas" size="12" style="0"/>
           <text value="Elige una de las dos opciones dependiendo de tu rol"/>
         </properties>
       </component>

@@ -3,39 +3,41 @@ package views;
 import javax.swing.*;
 import java.awt.*;
 
-public class TeacherCalculator extends JDialog {
+public class CalculadoraProfesor extends JDialog {
     private JPanel contentPane;
     private JButton buttonCalculate;
-    private JButton buttonCancel;
+    private JButton buttonRegresar;
     private JLabel lblTitleCalc;
     private JTextField txtGrades;
     private JLabel lblResult;
     private Window parent;
 
-    public TeacherCalculator(Window parent) {
+    public CalculadoraProfesor(Window parent) {
         this.parent = parent;
         setContentPane(contentPane);
         setModal(true);
         setLocationRelativeTo(null);
         buttonCalculate();
-        buttonCancel();
+        buttonRegresar();
         pack();
 
 
     }
 
-    public void buttonCancel() {
-        buttonCancel.addActionListener(e -> {
+    public void buttonRegresar() {
+        buttonRegresar.addActionListener(e -> {
             this.dispose();
             if (parent != null) {
                 parent.requestFocus();
                 parent.revalidate();
                 parent.repaint();
+                parent.setVisible(true);
+
             }
         });
     }
 
-    public double calculateAverage(JTextField txtGrades) {
+    public double calcularPromedio(JTextField txtGrades) {
         String allGrades = txtGrades.getText();
 
         String[] elements = allGrades.split("[, ]+");
@@ -54,8 +56,8 @@ public class TeacherCalculator extends JDialog {
     public void buttonCalculate() {
         buttonCalculate.addActionListener(e -> {
             try {
-                double average = calculateAverage(txtGrades);
-                lblResult.setText(" RESULT: " + average);
+                double average = calcularPromedio(txtGrades);
+                lblResult.setText(" Resultado: " + average);
 
             } catch (NumberFormatException error) {
                 lblResult.setText("Error: Ingresa solo números");
