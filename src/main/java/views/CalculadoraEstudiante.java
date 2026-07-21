@@ -37,6 +37,7 @@ public class CalculadoraEstudiante extends JDialog {
         setLocationRelativeTo(null);
         regresarButton();
         pack();
+        visualizarOperaciones.setEditable(false);
 
         btn0.addActionListener(e -> agregarDigito("0"));
         btn1.addActionListener(e -> agregarDigito("1"));
